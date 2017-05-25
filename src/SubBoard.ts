@@ -68,7 +68,7 @@ export default class SubBoard extends TTT<Cell> {
       move[0] > this.size ||
       move[1] < 0 ||
       move[1] > this.size ||
-      typeof(this.board[move[0]][move[1]]) === 'undefined' ||
+      this.board[move[0]][move[1]] === undefined ||
       this.board[move[0]][move[1]].player >= ME
     );
   }
@@ -195,7 +195,7 @@ export default class SubBoard extends TTT<Cell> {
     if(player < ME){
       return;
     }
-    for(let i = 1; i < this.size; i++){
+    for(let i = 0; i < this.size; ++i){
       if(player !== this.board[row][i].player) {
         return;
       }
@@ -214,7 +214,7 @@ export default class SubBoard extends TTT<Cell> {
     if(player < ME){
       return;
     }
-    for(let i = 1; i < this.size; i++){
+    for(let i = 0; i < this.size; ++i){
       if(player !== this.board[i][col].player) {
         return;
       }
@@ -232,7 +232,7 @@ export default class SubBoard extends TTT<Cell> {
     if(player < ME){
       return;
     }
-    for(let i = 1; i < this.size; i++){
+    for(let i = 0; i < this.size; ++i){
       if(player !== this.board[i][i].player){
         return;
       }
@@ -250,7 +250,7 @@ export default class SubBoard extends TTT<Cell> {
     if(player < ME){
       return;
     }
-    for(let i = this.size - 1; i >= 0; i--){
+    for(let i = 0; i < this.size; ++i){
       if(player !== this.board[this.size - 1 - i][i].player){
         return;
       }
